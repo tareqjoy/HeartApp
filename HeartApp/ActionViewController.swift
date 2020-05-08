@@ -18,7 +18,7 @@ class ActionViewController: UIViewController {
     
     
     @IBAction func cancelButtonClicked(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     
@@ -26,7 +26,7 @@ class ActionViewController: UIViewController {
         if let name = nameTextField.text {
             
             delegate?.addData(agePicker.selectedRow(inComponent: 0),name)
-            dismiss(animated: true, completion: nil)
+            navigationController?.popViewController(animated: true)
         }
         
         
@@ -34,11 +34,11 @@ class ActionViewController: UIViewController {
     var ageList = [Int]()
 
     @IBOutlet weak var mainStackView: UIStackView!
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tabBarController?.tabBar.isHidden = true
         for i in 0...100{
             ageList.append(i)
         }
@@ -47,7 +47,12 @@ class ActionViewController: UIViewController {
         nameTextField.delegate = self
     
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+        super.viewWillDisappear(animated)
+    }
+/*
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
@@ -62,7 +67,7 @@ class ActionViewController: UIViewController {
             self.view.frame = mainFrame
 
         
-    }
+    }*/
 }
 
 extension ActionViewController: UIPickerViewDelegate{
