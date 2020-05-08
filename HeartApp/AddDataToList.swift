@@ -10,4 +10,5 @@ import Foundation
 
 protocol AddDataToList {
     func addData(_ age:Int, _ name: String )
+    func updateData(_ age:Int, _ name: String, index i: Int)
 }

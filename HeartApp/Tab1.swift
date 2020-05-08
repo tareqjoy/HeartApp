@@ -15,7 +15,7 @@ import JJFloatingActionButton
 
 class Tab1: UIViewController{
     var lst = [InfoClass]()
-
+    
     @IBOutlet weak var listView: UITableView!
     
     override func viewDidLoad() {
@@ -37,8 +37,8 @@ class Tab1: UIViewController{
         actionButton.handleSingleActionDirectly = true
         let addItem = actionButton.addItem()
         addItem.action = { item in
-
-            self.performSegue(withIdentifier: "addItem", sender: self)
+            
+            self.performSegue(withIdentifier: "addItem", sender: nil)
         }
         
         
@@ -49,6 +49,14 @@ class Tab1: UIViewController{
         if segue.identifier  == "addItem" {
             let destination = segue.destination as! ActionViewController
             destination.delegate = self
+            
+            if let safeSender = sender {
+                let tupl = safeSender as! (Int, InfoClass)
+                let infoId = tupl.0
+                let info = tupl.1
+                destination.info = info
+                destination.infoId = infoId
+            }
         }
     }
     override func viewDidLayoutSubviews(){
@@ -59,7 +67,7 @@ class Tab1: UIViewController{
             let safeAreaTop = CGFloat(0)//view.safeAreaInsets.top
             tabBar.frame.origin.y = safeAreaTop
             
-
+            
             
             let height = tabBar.frame.height
             
@@ -118,6 +126,41 @@ extension Tab1: AddDataToList{
         }
     }
     
+    func updateData(_ age: Int, _ name: String, index i: Int) {
+        
+        let oldInfo = lst[i]
+        let oldAge = oldInfo.age
+        let oldName = oldInfo.name
+        
+        if (oldInfo.age != age || oldInfo.name != name) {
+            
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let fetchReq : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Info")
+            fetchReq.predicate = NSPredicate(format: "age = %@ AND name = %@", String(oldAge), oldName)
+            do {
+                let test = try managedContext.fetch(fetchReq)
+                
+                let objUp = test[0] as! NSManagedObject
+                objUp.setValue(age, forKey: "age")
+                objUp.setValue(name, forKey: "name")
+                
+                do {
+                    try managedContext.save()
+                    lst[i].age = age
+                    lst[i].name = name
+                    listView.reloadData()
+                } catch {
+                    print(error)
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
     
     
 }
@@ -147,6 +190,9 @@ extension Tab1: UITableViewDelegate{
         let message = "Age: " + String(info.age) + "\nName: " + String(info.name)
         let alert = UIAlertController(title: "Information", message: message, preferredStyle: .alert)
         
+        alert.addAction(UIAlertAction(title: "Edit", style: UIAlertAction.Style.default, handler: { UIAlertAction in
+            self.performSegue(withIdentifier: "addItem", sender: (indexPath.row, info))
+        }))
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
         
