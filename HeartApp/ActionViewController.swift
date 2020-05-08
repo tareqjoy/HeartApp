@@ -60,7 +60,7 @@ class ActionViewController: UIViewController {
     @IBAction func saveButtonClicked(_ sender: Any) {
         if let name = nameTextField.text {
             let goodName = name.trimmingCharacters(in: .whitespaces)
-            if goodName.count < 5{
+            if goodName.count >= 5{
                 if editMode {
                     delegate?.updateData(agePicker.selectedRow(inComponent: 0),goodName, index : infoId!)
                 } else {
