@@ -14,7 +14,7 @@ class ActionViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var agePicker: UIPickerView!
     
-    var delegate: AddDataToList?
+    var delegate: InfoEntityManage?
     var info : InfoClass?
     var infoId : Int?
     var editMode = false
@@ -24,7 +24,6 @@ class ActionViewController: UIViewController {
         if editMode {
             if let name = nameTextField.text {
                 if (name != info?.name || agePicker.selectedRow(inComponent: 0) != info?.age){
-
                     showCancelConfirmDlg()
                 } else {
                     navigationController?.popViewController(animated: true)

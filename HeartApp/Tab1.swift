@@ -44,6 +44,16 @@ class Tab1: UIViewController{
         
     }
     
+    func showConfirmDelDlg(age: Int, name: String, index i:Int){
+        let alert = UIAlertController(title: "Alert", message: "Are your to delete this item?", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: {UIAlertAction in
+            self.deleteData(age, name, index: i)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier  == "addItem" {
@@ -76,6 +86,16 @@ class Tab1: UIViewController{
             
         }
     }
+    
+    
+    
+    
+    
+}
+
+
+extension Tab1: InfoEntityManage{
+    
     func loadDataToList() -> [InfoClass]{
         var infoData : [InfoClass] = []
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -100,12 +120,35 @@ class Tab1: UIViewController{
     }
     
     
+    func deleteData(_ age: Int, _ name: String, index i: Int) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchReq = NSFetchRequest<NSFetchRequestResult> (entityName: "Info")
+        fetchReq.predicate = NSPredicate(format: "age = %@ AND name = %@", String(age), name)
+        
+        do {
+            let test = try managedContext.fetch(fetchReq)
+            let toDel = test[0] as! NSManagedObject
+            managedContext.delete(toDel)
+            
+            do {
+                try managedContext.save()
+                lst.remove(at: i)
+                listView.reloadData()
+            } catch {
+                print("error saving after deletion")
+            }
+        } catch {
+            print("error fetching with context")
+        }
+        
+        
+        
+    }
     
-    
-}
-
-
-extension Tab1: AddDataToList{
     func addData(_ age: Int, _ name: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -125,6 +168,8 @@ extension Tab1: AddDataToList{
             print(error.localizedDescription)
         }
     }
+    
+    
     
     func updateData(_ age: Int, _ name: String, index i: Int) {
         
@@ -183,20 +228,42 @@ extension Tab1: UITableViewDataSource{
 }
 
 extension Tab1: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
         let info = lst[indexPath.row] 
         let message = "Age: " + String(info.age) + "\nName: " + String(info.name)
         let alert = UIAlertController(title: "Information", message: message, preferredStyle: .alert)
         
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+        
         alert.addAction(UIAlertAction(title: "Edit", style: UIAlertAction.Style.default, handler: { UIAlertAction in
             self.performSegue(withIdentifier: "addItem", sender: (indexPath.row, info))
         }))
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
+        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: { UIAlertAction in
+            self.showConfirmDelDlg(age: info.age, name: info.name, index: indexPath.row)
+            
+
+        }))
         
+
         self.present(alert, animated: true, completion: nil)
         
+    }
+    
+    
+    
+     func tableView(_ tableView: UITableView,
+                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+            let modifyAction = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+                let info = self.lst[indexPath.row]
+                self.showConfirmDelDlg(age: info.age, name: info.name, index: indexPath.row)
+                success(true)
+            })
+            
+            modifyAction.backgroundColor = .red
+        
+            return UISwipeActionsConfiguration(actions: [modifyAction])
     }
 }
