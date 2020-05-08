@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import CoreData
 import UIKit
 import JJFloatingActionButton
 
@@ -15,13 +15,13 @@ import JJFloatingActionButton
 
 class Tab1: UIViewController{
     var lst = [InfoClass]()
-    
+
     @IBOutlet weak var listView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        lst = loadDataToList()
         
         listView.dataSource = self
         listView.delegate = self
@@ -68,7 +68,28 @@ class Tab1: UIViewController{
             
         }
     }
-    
+    func loadDataToList() -> [InfoClass]{
+        var infoData : [InfoClass] = []
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return infoData
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchReq = NSFetchRequest<NSFetchRequestResult> (entityName: "Info")
+        
+        do {
+            let result = try managedContext.fetch(fetchReq)
+            for data in result as! [NSManagedObject] {
+                let age =  data.value(forKey: "age") as! Int
+                let name = data.value(forKey: "name") as! String
+                infoData.append(InfoClass(age: age, name: name))
+            }
+        } catch {
+            print("error")
+        }
+        
+        return infoData
+    }
     
     
     
@@ -78,9 +99,25 @@ class Tab1: UIViewController{
 
 extension Tab1: AddDataToList{
     func addData(_ age: Int, _ name: String) {
-        lst.append(InfoClass(age: age, name: name))
-        listView.reloadData()
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let infoEntity = NSEntityDescription.entity(forEntityName: "Info", in: managedContext)!
+        
+        let info = NSManagedObject(entity: infoEntity, insertInto: managedContext)
+        info.setValue(age, forKey: "age")
+        info.setValue(name, forKey: "name")
+        
+        do {
+            try managedContext.save()
+            lst.append(InfoClass(age: age, name: name))
+            listView.reloadData()
+        } catch let error as NSError{
+            print(error.localizedDescription)
+        }
     }
+    
     
     
 }
@@ -93,8 +130,9 @@ extension Tab1: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "reUsableCell", for: indexPath) as! InfoViewTableViewCell
-        cell.ageLabel.text = String(lst[indexPath.row].age)
-        cell.nameLabel.text = lst[indexPath.row].name
+        let info = lst[indexPath.row] 
+        cell.ageLabel.text = String(info.age)
+        cell.nameLabel.text = info.name
         return cell
     }
     
@@ -105,7 +143,7 @@ extension Tab1: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         
         
-        let info = lst[indexPath.row]
+        let info = lst[indexPath.row] 
         let message = "Age: " + String(info.age) + "\nName: " + String(info.name)
         let alert = UIAlertController(title: "Information", message: message, preferredStyle: .alert)
         
