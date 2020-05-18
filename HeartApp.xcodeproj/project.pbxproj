@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		542F2BE324612A4100876920 /* JJFloatingActionButton in Frameworks */ = {isa = PBXBuildFile; productRef = 542F2BE224612A4100876920 /* JJFloatingActionButton */; };
+		542F2BE324612A4100876920 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 542F2BE224612A4100876920 /* SwiftPackageProductDependency */; };
 		542F2BE524613DD200876920 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542F2BE424613DD200876920 /* ActionViewController.swift */; };
-		542F2BE824614A5900876920 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 542F2BE724614A5900876920 /* IQKeyboardManagerSwift */; };
+		542F2BE824614A5900876920 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 542F2BE724614A5900876920 /* SwiftPackageProductDependency */; };
 		542F2BEA2461582C00876920 /* InfoEntityManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542F2BE92461582C00876920 /* InfoEntityManage.swift */; };
 		542F2BED24615DC100876920 /* InfoViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542F2BEB24615DC100876920 /* InfoViewTableViewCell.swift */; };
 		542F2BEE24615DC100876920 /* InfoViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 542F2BEC24615DC100876920 /* InfoViewTableViewCell.xib */; };
@@ -21,9 +21,11 @@
 		545A98BD245FE51D0086B93F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 545A98BB245FE51D0086B93F /* LaunchScreen.storyboard */; };
 		545A98C7245FF6DD0086B93F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 545A98C6245FF6DD0086B93F /* Main.storyboard */; };
 		545A98D3246008F50086B93F /* Tab1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545A98D2246008F50086B93F /* Tab1.swift */; };
+		A11EA932C81E0FC477D1FCD6 /* Pods_HeartApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000FF2C632AE987478257FFD /* Pods_HeartApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		000FF2C632AE987478257FFD /* Pods_HeartApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeartApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		542F2BE424613DD200876920 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		542F2BE92461582C00876920 /* InfoEntityManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoEntityManage.swift; sourceTree = "<group>"; };
 		542F2BEB24615DC100876920 /* InfoViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewTableViewCell.swift; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		545A98BE245FE51D0086B93F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		545A98C6245FF6DD0086B93F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		545A98D2246008F50086B93F /* Tab1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1.swift; sourceTree = "<group>"; };
+		8C61C396E0DE342D9A4256D3 /* Pods-HeartApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartApp.release.xcconfig"; path = "Target Support Files/Pods-HeartApp/Pods-HeartApp.release.xcconfig"; sourceTree = "<group>"; };
+		E4B070680D90ADEF5395EBD3 /* Pods-HeartApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartApp.debug.xcconfig"; path = "Target Support Files/Pods-HeartApp/Pods-HeartApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,8 +49,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				542F2BE324612A4100876920 /* JJFloatingActionButton in Frameworks */,
-				542F2BE824614A5900876920 /* IQKeyboardManagerSwift in Frameworks */,
+				542F2BE324612A4100876920 /* BuildFile in Frameworks */,
+				542F2BE824614A5900876920 /* BuildFile in Frameworks */,
+				A11EA932C81E0FC477D1FCD6 /* Pods_HeartApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +63,8 @@
 			children = (
 				545A98AC245FE51B0086B93F /* HeartApp */,
 				545A98AB245FE51B0086B93F /* Products */,
+				EE798F34044AAD04925EF0B6 /* Pods */,
+				A1C91343C093C3FE509F9D58 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +96,24 @@
 			path = HeartApp;
 			sourceTree = "<group>";
 		};
+		A1C91343C093C3FE509F9D58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				000FF2C632AE987478257FFD /* Pods_HeartApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE798F34044AAD04925EF0B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4B070680D90ADEF5395EBD3 /* Pods-HeartApp.debug.xcconfig */,
+				8C61C396E0DE342D9A4256D3 /* Pods-HeartApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,9 +121,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 545A98C1245FE51D0086B93F /* Build configuration list for PBXNativeTarget "HeartApp" */;
 			buildPhases = (
+				7D2BB722A8DE12AA4F36B89F /* [CP] Check Pods Manifest.lock */,
 				545A98A6245FE51B0086B93F /* Sources */,
 				545A98A7245FE51B0086B93F /* Frameworks */,
 				545A98A8245FE51B0086B93F /* Resources */,
+				EE064317E76EE5EE7209A619 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -106,8 +133,8 @@
 			);
 			name = HeartApp;
 			packageProductDependencies = (
-				542F2BE224612A4100876920 /* JJFloatingActionButton */,
-				542F2BE724614A5900876920 /* IQKeyboardManagerSwift */,
+				542F2BE224612A4100876920 /* SwiftPackageProductDependency */,
+				542F2BE724614A5900876920 /* SwiftPackageProductDependency */,
 			);
 			productName = HeartApp;
 			productReference = 545A98AA245FE51B0086B93F /* HeartApp.app */;
@@ -138,8 +165,8 @@
 			);
 			mainGroup = 545A98A1245FE51A0086B93F;
 			packageReferences = (
-				542F2BE124612A4100876920 /* XCRemoteSwiftPackageReference "JJFloatingActionButton" */,
-				542F2BE624614A5900876920 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				542F2BE124612A4100876920 /* RemoteSwiftPackageReference */,
+				542F2BE624614A5900876920 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 545A98AB245FE51B0086B93F /* Products */;
 			projectDirPath = "";
@@ -163,6 +190,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7D2BB722A8DE12AA4F36B89F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HeartApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE064317E76EE5EE7209A619 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HeartApp/Pods-HeartApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HeartApp/Pods-HeartApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HeartApp/Pods-HeartApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		545A98A6245FE51B0086B93F /* Sources */ = {
@@ -310,6 +379,7 @@
 		};
 		545A98C2245FE51D0086B93F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4B070680D90ADEF5395EBD3 /* Pods-HeartApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -328,6 +398,7 @@
 		};
 		545A98C3245FE51D0086B93F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C61C396E0DE342D9A4256D3 /* Pods-HeartApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -368,7 +439,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		542F2BE124612A4100876920 /* XCRemoteSwiftPackageReference "JJFloatingActionButton" */ = {
+		542F2BE124612A4100876920 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jjochen/JJFloatingActionButton.git";
 			requirement = {
@@ -376,7 +447,7 @@
 				minimumVersion = 2.5.0;
 			};
 		};
-		542F2BE624614A5900876920 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+		542F2BE624614A5900876920 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
 			requirement = {
@@ -387,14 +458,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		542F2BE224612A4100876920 /* JJFloatingActionButton */ = {
+		542F2BE224612A4100876920 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 542F2BE124612A4100876920 /* XCRemoteSwiftPackageReference "JJFloatingActionButton" */;
+			package = 542F2BE124612A4100876920 /* RemoteSwiftPackageReference */;
 			productName = JJFloatingActionButton;
 		};
-		542F2BE724614A5900876920 /* IQKeyboardManagerSwift */ = {
+		542F2BE724614A5900876920 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 542F2BE624614A5900876920 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			package = 542F2BE624614A5900876920 /* RemoteSwiftPackageReference */;
 			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

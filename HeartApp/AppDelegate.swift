@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import IQKeyboardManagerSwift
+import EncryptedCoreData
 
 
 
@@ -52,6 +53,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
          */
         let container = NSPersistentContainer(name: "HeartApp")
+        
+        let cOpts : NSDictionary = [
+                    EncryptedStore.optionPassphraseKey() : "1234", //your Key
+                    EncryptedStore.optionFileManager() : EncryptedStoreFileManager.default()
+                ]
+        let desc = try! EncryptedStore.makeDescription(options: cOpts as! [AnyHashable : Any], configuration: nil)
+        container.persistentStoreDescriptions = [desc]
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
