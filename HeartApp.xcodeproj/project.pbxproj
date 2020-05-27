@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		542F2BE324612A4100876920 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 542F2BE224612A4100876920 /* SwiftPackageProductDependency */; };
+		542F2BE324612A4100876920 /* JJFloatingActionButton in Frameworks */ = {isa = PBXBuildFile; productRef = 542F2BE224612A4100876920 /* JJFloatingActionButton */; };
 		542F2BE524613DD200876920 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542F2BE424613DD200876920 /* ActionViewController.swift */; };
-		542F2BE824614A5900876920 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 542F2BE724614A5900876920 /* SwiftPackageProductDependency */; };
+		542F2BE824614A5900876920 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 542F2BE724614A5900876920 /* IQKeyboardManagerSwift */; };
 		542F2BEA2461582C00876920 /* InfoEntityManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542F2BE92461582C00876920 /* InfoEntityManage.swift */; };
 		542F2BED24615DC100876920 /* InfoViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542F2BEB24615DC100876920 /* InfoViewTableViewCell.swift */; };
 		542F2BEE24615DC100876920 /* InfoViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 542F2BEC24615DC100876920 /* InfoViewTableViewCell.xib */; };
@@ -49,8 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				542F2BE324612A4100876920 /* BuildFile in Frameworks */,
-				542F2BE824614A5900876920 /* BuildFile in Frameworks */,
+				542F2BE324612A4100876920 /* JJFloatingActionButton in Frameworks */,
+				542F2BE824614A5900876920 /* IQKeyboardManagerSwift in Frameworks */,
 				A11EA932C81E0FC477D1FCD6 /* Pods_HeartApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,7 +110,6 @@
 				E4B070680D90ADEF5395EBD3 /* Pods-HeartApp.debug.xcconfig */,
 				8C61C396E0DE342D9A4256D3 /* Pods-HeartApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -133,8 +132,8 @@
 			);
 			name = HeartApp;
 			packageProductDependencies = (
-				542F2BE224612A4100876920 /* SwiftPackageProductDependency */,
-				542F2BE724614A5900876920 /* SwiftPackageProductDependency */,
+				542F2BE224612A4100876920 /* JJFloatingActionButton */,
+				542F2BE724614A5900876920 /* IQKeyboardManagerSwift */,
 			);
 			productName = HeartApp;
 			productReference = 545A98AA245FE51B0086B93F /* HeartApp.app */;
@@ -165,8 +164,8 @@
 			);
 			mainGroup = 545A98A1245FE51A0086B93F;
 			packageReferences = (
-				542F2BE124612A4100876920 /* RemoteSwiftPackageReference */,
-				542F2BE624614A5900876920 /* RemoteSwiftPackageReference */,
+				542F2BE124612A4100876920 /* XCRemoteSwiftPackageReference "JJFloatingActionButton" */,
+				542F2BE624614A5900876920 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 545A98AB245FE51B0086B93F /* Products */;
 			projectDirPath = "";
@@ -439,7 +438,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		542F2BE124612A4100876920 /* RemoteSwiftPackageReference */ = {
+		542F2BE124612A4100876920 /* XCRemoteSwiftPackageReference "JJFloatingActionButton" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jjochen/JJFloatingActionButton.git";
 			requirement = {
@@ -447,7 +446,7 @@
 				minimumVersion = 2.5.0;
 			};
 		};
-		542F2BE624614A5900876920 /* RemoteSwiftPackageReference */ = {
+		542F2BE624614A5900876920 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
 			requirement = {
@@ -458,14 +457,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		542F2BE224612A4100876920 /* SwiftPackageProductDependency */ = {
+		542F2BE224612A4100876920 /* JJFloatingActionButton */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 542F2BE124612A4100876920 /* RemoteSwiftPackageReference */;
+			package = 542F2BE124612A4100876920 /* XCRemoteSwiftPackageReference "JJFloatingActionButton" */;
 			productName = JJFloatingActionButton;
 		};
-		542F2BE724614A5900876920 /* SwiftPackageProductDependency */ = {
+		542F2BE724614A5900876920 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 542F2BE624614A5900876920 /* RemoteSwiftPackageReference */;
+			package = 542F2BE624614A5900876920 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

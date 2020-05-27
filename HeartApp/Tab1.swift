@@ -127,7 +127,9 @@ extension Tab1: InfoEntityManage{
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchReq = NSFetchRequest<NSFetchRequestResult> (entityName: "Info")
-        fetchReq.predicate = NSPredicate(format: "age = %@ AND name = %@", String(age), name)
+        //fetchReq.predicate = NSPredicate(format: "age = %@ AND name = %@", String(age), name)
+        fetchReq.predicate = NSPredicate(format: "(age == %@) AND (name == %@)",NSNumber(value: age), name)
+        
         
         do {
             let test = try managedContext.fetch(fetchReq)
@@ -184,7 +186,7 @@ extension Tab1: InfoEntityManage{
             }
             let managedContext = appDelegate.persistentContainer.viewContext
             let fetchReq : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Info")
-            fetchReq.predicate = NSPredicate(format: "age = %@ AND name = %@", String(oldAge), oldName)
+            fetchReq.predicate = NSPredicate(format: "(age == %@) AND (name == %@)",NSNumber(value: oldAge), oldName)
             do {
                 let test = try managedContext.fetch(fetchReq)
                 
@@ -246,6 +248,8 @@ extension Tab1: UITableViewDelegate{
             
 
         }))
+        
+        tableView.deselectRow(at: indexPath, animated: true)
         
 
         self.present(alert, animated: true, completion: nil)

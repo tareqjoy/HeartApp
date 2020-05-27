@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-HeartApp/Pods-HeartApp-frameworks.sh
+${BUILT_PRODUCTS_DIR}/EncryptedCoreData/EncryptedCoreData.framework
+${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
+${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
+${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${BUILT_PRODUCTS_DIR}/SQLCipher/SQLCipher.framework

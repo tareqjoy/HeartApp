@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "IQKeyboardManagerSwift",
+        "repositoryURL": "https://github.com/hackiftekhar/IQKeyboardManager.git",
+        "state": {
+          "branch": null,
+          "revision": "b0f0a127cca6bb39378447baa2afff74123abd09",
+          "version": "6.5.5"
+        }
+      },
+      {
+        "package": "JJFloatingActionButton",
+        "repositoryURL": "https://github.com/jjochen/JJFloatingActionButton.git",
+        "state": {
+          "branch": null,
+          "revision": "60fcde6d01aa33598753214b9438c192f2074900",
+          "version": "2.5.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
